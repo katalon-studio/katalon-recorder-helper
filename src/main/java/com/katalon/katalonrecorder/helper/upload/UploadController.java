@@ -3,6 +3,7 @@ package com.katalon.katalonrecorder.helper.upload;
 import com.katalon.katalonrecorder.helper.LogHelper;
 import com.katalon.katalonrecorder.helper.ResponseMessage;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +17,9 @@ import java.awt.event.KeyEvent;
 public class UploadController {
 
     private Logger log = LogHelper.getLogger();
+    
+    @Value("${upload.timeout}")
+    private Integer uploadTimeout;
 
     private void setClipboardData(String text) {
         StringSelection stringSelection = new StringSelection(text);
@@ -26,9 +30,9 @@ public class UploadController {
         setClipboardData(path); // put file path into clipboard for pasting
         Robot robot = new Robot();
         pressEnter(robot); // open dialog
-        Thread.sleep(3000);
+        Thread.sleep(uploadTimeout);
         pressCtrlV(robot); // paste file path
-        Thread.sleep(3000);
+        Thread.sleep(uploadTimeout);
         pressEnter(robot); // close dialog
     }
 
