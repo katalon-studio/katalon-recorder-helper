@@ -1,5 +1,6 @@
-package com.katalon.katalonrecorder.helper;
+package com.katalon.katalonrecorder.helper.command;
 
+import com.katalon.katalonrecorder.helper.LogHelper;
 import org.slf4j.Logger;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RequestMapping;
