@@ -3,6 +3,7 @@ package com.katalon.katalonrecorder.helper;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -40,7 +41,7 @@ public class UploadController {
         robot.keyRelease(KeyEvent.VK_CONTROL);
     }
 
-    @PostMapping("/upload")
+    @RequestMapping("/upload")
     @ResponseBody
     public void upload(@RequestParam("path") String path) throws AWTException, InterruptedException {
         uploadFile(path);
