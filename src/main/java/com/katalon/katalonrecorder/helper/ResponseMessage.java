@@ -1,9 +1,9 @@
 package com.katalon.katalonrecorder.helper;
 
-public class ResponseMsg {
+public class ResponseMessage {
     private Object message;
 
-    public ResponseMsg(Object msg) {
+    public ResponseMessage(Object msg) {
         this.message = msg;
     }
 

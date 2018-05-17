@@ -1,4 +1,4 @@
-package com.katalon.katalonrecorder.helper;
+package com.katalon.katalonrecorder.helper.command;
 
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.RequestMapping;

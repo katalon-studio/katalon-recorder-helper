@@ -1,4 +1,4 @@
-package com.katalon.katalonrecorder.helper;
+package com.katalon.katalonrecorder.helper.command;
 
 import java.util.List;
 

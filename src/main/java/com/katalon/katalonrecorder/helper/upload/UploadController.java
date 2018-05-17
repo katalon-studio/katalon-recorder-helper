@@ -1,5 +1,7 @@
-package com.katalon.katalonrecorder.helper;
+package com.katalon.katalonrecorder.helper.upload;
 
+import com.katalon.katalonrecorder.helper.LogHelper;
+import com.katalon.katalonrecorder.helper.ResponseMessage;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,11 +23,13 @@ public class UploadController {
     }
 
     private void uploadFile(String path) throws AWTException, InterruptedException {
-        setClipboardData(path);
+        setClipboardData(path); // put file path into clipboard for pasting
         Robot robot = new Robot();
-        pressCtrlV(robot);
+        pressEnter(robot); // open dialog
         Thread.sleep(3000);
-        pressEnter(robot);
+        pressCtrlV(robot); // paste file path
+        Thread.sleep(3000);
+        pressEnter(robot); // close dialog
     }
 
     private void pressEnter(Robot robot) {
@@ -42,8 +46,8 @@ public class UploadController {
 
     @RequestMapping("/upload")
     @ResponseBody
-    public ResponseMsg upload(@RequestParam("path") String path) throws AWTException, InterruptedException {
+    public ResponseMessage upload(@RequestParam("path") String path) throws AWTException, InterruptedException {
         uploadFile(path);
-        return new ResponseMsg("Upload successfully to the path: " + path);
+        return new ResponseMessage("Upload successfully to the path: " + path);
     }
 }

@@ -1,4 +1,4 @@
-package com.katalon.katalonrecorder.helper;
+package com.katalon.katalonrecorder.helper.command;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
