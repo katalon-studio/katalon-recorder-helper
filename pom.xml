@@ -51,6 +51,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>katalon-recorder-helper</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
