@@ -5,11 +5,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.function.Consumer;
 
-public class StreamGobbler implements Runnable {
+public class InputStreamExecutor implements Runnable {
     private InputStream inputStream;
     private Consumer<String> consumer;
 
-    public StreamGobbler(InputStream inputStream, Consumer<String> consumer) {
+    public InputStreamExecutor(InputStream inputStream, Consumer<String> consumer) {
         this.inputStream = inputStream;
         this.consumer = consumer;
     }

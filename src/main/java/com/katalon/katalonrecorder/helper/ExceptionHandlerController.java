@@ -14,9 +14,9 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
     private static final Logger log = LogHelper.getLogger();
 
     @ExceptionHandler(value = {RuntimeException.class, IllegalArgumentException.class})
-    public ResponseEntity<ResponseMsg> handledException(Exception ex, WebRequest request) {
+    public ResponseEntity<ResponseMessenger> handledException(Exception ex, WebRequest request) {
         log.error(ex.getMessage(), ex);
-        ResponseMsg responseMsg = new ResponseMsg(ex.getMessage());
-        return new ResponseEntity<>(responseMsg, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+        ResponseMessenger responseMessenger = new ResponseMessenger(ex.getMessage());
+        return new ResponseEntity<>(responseMessenger, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

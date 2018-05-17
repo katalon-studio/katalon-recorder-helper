@@ -42,8 +42,8 @@ public class UploadController {
 
     @RequestMapping("/upload")
     @ResponseBody
-    public ResponseMsg upload(@RequestParam("path") String path) throws AWTException, InterruptedException {
+    public ResponseMessenger upload(@RequestParam("path") String path) throws AWTException, InterruptedException {
         uploadFile(path);
-        return new ResponseMsg("Upload successfully to the path: " + path);
+        return new ResponseMessenger("Upload successfully to the path: " + path);
     }
 }
