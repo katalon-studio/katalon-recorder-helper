@@ -10,7 +10,7 @@ Please see the usage here https://docs.katalon.com/x/PQTR.
 
 ### Katalon TestOps
 
-Katalon TestOps is a web-based application that provides dynamic perspectives and an insightful look at your automation testing data. You can leverage your automation testing data by transforming and visualizing your data; analyzing test results; seamlessly integrating with such tools as Katalon Studio and Jira; maximizing the testing capacity with remote execution.
+[Katalon TestOps](https://analytics.katalon.com) is a web-based application that provides dynamic perspectives and an insightful look at your automation testing data. You can leverage your automation testing data by transforming and visualizing your data; analyzing test results; seamlessly integrating with such tools as Katalon Studio and Jira; maximizing the testing capacity with remote execution.
 
 * Read our [documentation](https://docs.katalon.com/katalon-analytics/docs/overview.html).
 * Ask a question on [Forum](https://forum.katalon.com/categories/katalon-analytics).
