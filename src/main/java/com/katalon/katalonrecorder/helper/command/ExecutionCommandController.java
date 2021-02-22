@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,7 +27,8 @@ public class ExecutionCommandController {
 
     @RequestMapping("/execute_sh")
     public CommandResource executeSh(@NonNull @RequestParam("sh") String sh, @RequestParam("params") String[] params) throws IOException, InterruptedException {
-        log.info(String.format("Process the command: '%s' with parameters: '%s'", sh, params));
+        log.info(String.format("Process the command: '%s' with parameters: '%s'"
+                , sh, String.join(", ", params)));
         return new CommandResource(sh, processSh(sh, params));
     }
 
@@ -45,9 +48,11 @@ public class ExecutionCommandController {
         ProcessBuilder pb = new ProcessBuilder(sh, sb.toString());
         process = pb.start();
         List<String> commandOutput = new ArrayList<>();
-        InputStreamExecutor inputStreamExecutor =
-                new InputStreamExecutor(process.getInputStream(), commandOutput::add);
-        Executors.newSingleThreadExecutor().submit(inputStreamExecutor);
+        BufferedReader br=new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line;
+        while((line = br.readLine())!=null) {
+            commandOutput.add(line);
+        }
         int exitCode = process.waitFor();
         if (exitCode == 0) {
             log.info(String.format("Output:\n%s", String.join("\n", commandOutput)));
